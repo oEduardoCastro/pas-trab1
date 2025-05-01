@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 public class Automovel {
     
+    private String id;
     private String placa;
     private String modelo;
     private String marca;
@@ -14,7 +15,8 @@ public class Automovel {
     private double valorDiaria;
     private boolean disponivel;
 
-    public Automovel(String placa, String modelo, String marca, String cor, int ano, double valorDiaria, boolean disponivel) {
+    public Automovel(String id, String placa, String modelo, String marca, String cor, int ano, double valorDiaria, boolean disponivel) {
+        this.id = id;   
         this.placa = placa;
         this.modelo = modelo;
         this.marca = marca;
@@ -24,8 +26,20 @@ public class Automovel {
         this.disponivel = disponivel;
     }
 
+    public String getId() {
+        return id;
+    }
     public String getPlaca() {
         return placa;
+    }
+    public String getModelo() {
+        return modelo;
+    }
+    public String getMarca() {
+        return marca;
+    }
+    public String getCor() {
+        return cor;
     }
     public int getAno() {
         return ano;

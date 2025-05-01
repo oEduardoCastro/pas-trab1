@@ -12,16 +12,16 @@ public class Frota {
     public Frota() {
         automovel = new ArrayList<>();
     
-        automovel.add(new Automovel("AAA0000", "Astra", "Chevrolet", "Vermelho", 2020, 100.0, true));
-        automovel.add(new Automovel("BBB1111", "Tracker", "Chevrolet", "Cinza", 2021, 150.0, true));
-        automovel.add(new Automovel("CCC2222", "Corolla", "Toyota", "Prata", 2022, 200.0, true));       
-        automovel.add(new Automovel("DDD3333", "Sentra", "Nissan", "Preto", 2024, 250.0, false));
-        automovel.add(new Automovel("EEE4444", "T-Cross", "Volkswagen", "Preto", 2023, 150.0, true));
-        automovel.add(new Automovel("FFF5555", "208", "Peugeot", "Vermelho", 2022, 130.0, true));
-        automovel.add(new Automovel("GGG6666", "Renegade", "Jeep", "Preto", 2021, 100.0, false));
-        automovel.add(new Automovel("HHH7777", "Yaris", "Toyota", "Branco", 2020, 120.0, true));
-        automovel.add(new Automovel("III8888", "Onix", "Chevrolet", "Prata",  2023, 150.0, true));
-        automovel.add(new Automovel("JJJ9999", "Creta", "Hyundai", "Azul", 2024, 200.0, false));
+        automovel.add(new Automovel("0001", "AAA0000", "Astra", "Chevrolet", "Vermelho", 2020, 100.0, true));
+        automovel.add(new Automovel("0002", "BBB1111", "Tracker", "Chevrolet", "Cinza", 2021, 150.0, true));
+        automovel.add(new Automovel("0003", "CCC2222", "Corolla", "Toyota", "Prata", 2022, 200.0, true));       
+        automovel.add(new Automovel("0004", "DDD3333", "Sentra", "Nissan", "Preto", 2024, 250.0, true));
+        automovel.add(new Automovel("0005", "EEE4444", "T-Cross", "Volkswagen", "Preto", 2023, 150.0, true));
+        automovel.add(new Automovel("0006", "FFF5555", "208", "Peugeot", "Vermelho", 2022, 130.0, true));
+        automovel.add(new Automovel("0007", "GGG6666", "Renegade", "Jeep", "Preto", 2021, 100.0, true));
+        automovel.add(new Automovel("0008", "HHH7777", "Yaris", "Toyota", "Branco", 2020, 120.0, true));
+        automovel.add(new Automovel("0009", "III8888", "Onix", "Chevrolet", "Prata",  2023, 150.0, true));
+        automovel.add(new Automovel("0010", "JJJ9999", "Creta", "Hyundai", "Azul", 2024, 200.0, true));
     }
     public List<Automovel> getAutomoveis() {
         return automovel;
