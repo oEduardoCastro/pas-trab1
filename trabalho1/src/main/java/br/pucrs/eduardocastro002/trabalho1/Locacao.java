@@ -1,26 +1,29 @@
 package br.pucrs.eduardocastro002.trabalho1;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 public class Locacao { 
 
-    private String dataLocacao;
-    private String dataDevolucao;
+    private LocalDate dataLocacao;
+    private LocalDate dataDevolucao;
     private String codigoInterno;
-    private String cpfCliente;
-    private String codigoVeiculo;
+    private Cliente cliente;
+    private Automovel automovel;
 
-    public Locacao(String dataLocacao, String dataDevolucao, String codigoInterno, String cpfCliente, String codigoVeiculo) {
+    public Locacao(LocalDate dataLocacao, LocalDate dataDevolucao, String codigoInterno, Cliente cliente, Automovel automovel) {
         this.dataLocacao = dataLocacao;
         this.dataDevolucao = dataDevolucao;
         this.codigoInterno = codigoInterno;
-        this.cpfCliente = cpfCliente;
-        this.codigoVeiculo = codigoVeiculo;
+        this.cliente = cliente;
+        this.automovel = automovel;
     }
 
-    public String getDataLocacao() {
+    public LocalDate getDataLocacao() {
         return dataLocacao;
     }
 
-    public String getDataDevolucao() {
+    public LocalDate getDataDevolucao() {
         return dataDevolucao;
     }
 
@@ -28,11 +31,23 @@ public class Locacao {
         return codigoInterno;
     }
 
-    public String getCpfCliente() {
-        return cpfCliente;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public String getCodigoVeiculo() {
-        return codigoVeiculo;
+    public Automovel getVeiculo() {
+        return automovel;
+    }
+
+    public double calculaValorLocacao(double valorDiaria) {
+        Period tempoDeLocacao = Period.between(dataLocacao, dataDevolucao);
+        int dias = tempoDeLocacao.getDays();
+        
+        if (dias > 7){
+            double desconto = 0.05; // 5% de desconto
+            return (dias * valorDiaria) - ((dias * valorDiaria) * desconto);
+        } else {
+            return dias * valorDiaria;
+        }
     }
 }
