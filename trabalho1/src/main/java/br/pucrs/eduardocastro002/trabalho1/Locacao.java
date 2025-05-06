@@ -42,12 +42,13 @@ public class Locacao {
     public double calculaValorLocacao(double valorDiaria) {
         Period tempoDeLocacao = Period.between(dataLocacao, dataDevolucao);
         int dias = tempoDeLocacao.getDays();
+        valorTotal = dias * valorDiaria;
         
         if (dias > 7){
-            double desconto = 0.05; // 5% de desconto
-            return (dias * valorDiaria) - ((dias * valorDiaria) * desconto);
+            double desconto = valorTotal * 0.95;
+            return desconto;
         } else {
-            return dias * valorDiaria;
+            return valorTotal;
         }
     }
 }

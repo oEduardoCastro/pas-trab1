@@ -33,4 +33,8 @@ public class Cliente {
     public String getCodigo() {
         return codigoInterno;
     }
+
+    public List<Cliente> getCliente() {
+        return cliente;
+    }
 }
