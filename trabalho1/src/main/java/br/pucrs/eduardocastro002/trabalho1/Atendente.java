@@ -30,7 +30,7 @@ public class Atendente {
 
     public boolean finalizarLocacao(List<Locacao> locacoes, String codigoInterno) {
         Optional<Locacao> loc = locacoes.stream()
-                .filter(l -> l.getCodigoInterno().equals(codigoInterno))
+                .filter(l -> l.getCodigoLocacao().equals(codigoInterno))
                 .findFirst();
 
         if (loc.isPresent()) {

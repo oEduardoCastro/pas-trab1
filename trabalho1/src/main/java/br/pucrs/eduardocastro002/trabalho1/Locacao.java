@@ -7,16 +7,18 @@ public class Locacao {
 
     private LocalDate dataLocacao;
     private LocalDate dataDevolucao;
-    private String codigoInterno;
+    private String codigoLocacao;
     private Cliente cliente;
     private Automovel automovel;
+    private double valorTotal;
 
-    public Locacao(LocalDate dataLocacao, LocalDate dataDevolucao, String codigoInterno, Cliente cliente, Automovel automovel) {
+    public Locacao(LocalDate dataLocacao, LocalDate dataDevolucao, String codigoLocacao, Cliente cliente, Automovel automovel) {
         this.dataLocacao = dataLocacao;
         this.dataDevolucao = dataDevolucao;
-        this.codigoInterno = codigoInterno;
+        this.codigoLocacao = codigoLocacao;
         this.cliente = cliente;
         this.automovel = automovel;
+        this.valorTotal = calcularValorTotal();
     }
 
     public LocalDate getDataLocacao() {
@@ -27,8 +29,8 @@ public class Locacao {
         return dataDevolucao;
     }
 
-    public String getCodigoInterno() {
-        return codigoInterno;
+    public String getCodigoLocacao() {
+        return codigoLocacao;
     }
 
     public Cliente getCliente() {
@@ -38,8 +40,11 @@ public class Locacao {
     public Automovel getAutomovel() {
         return automovel;
     }
+    public double getValorTotal() {
+        return valorTotal;
+    }
 
-    public double calculaValorLocacao() {
+    public double calcularValorTotal() {
         long dias = ChronoUnit.DAYS.between(dataLocacao, dataDevolucao);
         if (dias <= 0) {
             dias = 1; // Garantir ao menos 1 diária
@@ -50,7 +55,6 @@ public class Locacao {
         if (dias > 7) {
             valorTotal *= 0.95; // 5% de desconto
         }
-
         return valorTotal;
     }
 }

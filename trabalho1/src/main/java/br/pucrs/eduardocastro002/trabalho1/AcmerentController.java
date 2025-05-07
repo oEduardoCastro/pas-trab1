@@ -32,7 +32,7 @@ public class AcmerentController {
 
         // Criar locações
         Locacao l1 = new Locacao(LocalDate.now().minusDays(10), LocalDate.now().minusDays(5), "LOC001", c1, frota.getAutomoveis().get(0));
-        Locacao l2 = new Locacao(LocalDate.now().minusDays(3), LocalDate.now(), "LOC002", c2, frota.getAutomoveis().get(1));
+        Locacao l2 = new Locacao(LocalDate.now().minusDays(8), LocalDate.now(), "LOC002", c2, frota.getAutomoveis().get(1));
 
         c1.adicionarLocacao(l1);
         c2.adicionarLocacao(l2);
@@ -84,8 +84,8 @@ public class AcmerentController {
     }
 
     @PostMapping("/atendimento/finalizalocacao")
-    public boolean finalizarLocacao(@RequestBody String numero) {
-        return atendente.finalizarLocacao(locacoes, numero);
+    public boolean finalizarLocacao(@RequestBody String codigoLocacao) {
+        return atendente.finalizarLocacao(locacoes, codigoLocacao);
     }
 
     // ------------------- Endpoints do Gerente -------------------

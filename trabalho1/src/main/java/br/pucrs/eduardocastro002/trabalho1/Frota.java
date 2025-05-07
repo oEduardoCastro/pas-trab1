@@ -27,4 +27,10 @@ public class Frota {
         return automovel;
     }
 
+    public Optional<Automovel> buscarPorId(String id) {
+        return automovel.stream()
+                .filter(auto -> auto.getId().equals(id))
+                .findFirst();
+    }
+
 }

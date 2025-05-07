@@ -1,11 +1,15 @@
 package br.pucrs.eduardocastro002.trabalho1;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cliente {
     private String nome;
     private String cpf;
     private String telefone;
     private String email;
     private String codigoInterno;
+    private List<Locacao> locacoes = new ArrayList<>();
 
     public Cliente(String nome, String cpf, String telefone, String email, String codigo) {
         this.nome = nome;
@@ -13,6 +17,7 @@ public class Cliente {
         this.telefone = telefone;
         this.email = email;
         this.codigoInterno = codigo;
+        
     }
 
     public String getNome() {
@@ -30,11 +35,10 @@ public class Cliente {
     public String getEmail() {
         return email;
     }
-    public String getCodigo() {
+    public String getCodigoInterno() {
         return codigoInterno;
     }
-
-    public List<Cliente> getCliente() {
-        return cliente;
+    public List<Locacao> adicionarLocacao(Locacao locacao) {
+        return locacoes;
     }
 }
