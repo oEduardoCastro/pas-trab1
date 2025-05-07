@@ -1,9 +1,9 @@
 package br.pucrs.eduardocastro002.trabalho1;
 
 import java.time.LocalDate;
-import java.time.Period;
+import java.time.temporal.ChronoUnit;
 
-public class Locacao { 
+public class Locacao {
 
     private LocalDate dataLocacao;
     private LocalDate dataDevolucao;
@@ -35,20 +35,22 @@ public class Locacao {
         return cliente;
     }
 
-    public Automovel getVeiculo() {
+    public Automovel getAutomovel() {
         return automovel;
     }
 
-    public double calculaValorLocacao(double valorDiaria) {
-        Period tempoDeLocacao = Period.between(dataLocacao, dataDevolucao);
-        int dias = tempoDeLocacao.getDays();
-        valorTotal = dias * valorDiaria;
-        
-        if (dias > 7){
-            double desconto = valorTotal * 0.95;
-            return desconto;
-        } else {
-            return valorTotal;
+    public double calculaValorLocacao() {
+        long dias = ChronoUnit.DAYS.between(dataLocacao, dataDevolucao);
+        if (dias <= 0) {
+            dias = 1; // Garantir ao menos 1 diária
         }
+
+        double valorTotal = dias * automovel.getValorDiaria();
+
+        if (dias > 7) {
+            valorTotal *= 0.95; // 5% de desconto
+        }
+
+        return valorTotal;
     }
 }
